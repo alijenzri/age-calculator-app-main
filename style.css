@@ -35,7 +35,7 @@ img {
     --xs-font: 400 16px 'Poppins', sans-serif;
     --small-font: 400 16px 'Poppins', sans-serif;
     --font-size-inputs: 700 32px 'Poppins', sans-serif;
-    --font-size-outputs: 800 105px 'Poppins', sans-serif;
+    --font-size-outputs: 800 90px 'Poppins', sans-serif;
 }
 
 /*
@@ -49,6 +49,7 @@ body {
     align-items: center;
     margin: 0;  
     font-family: 'Poppins', sans-serif;
+    font: var(--xs-font);
 }
 
 input {
@@ -84,6 +85,7 @@ input {
     margin: 20px;
     text-transform: uppercase;
     letter-spacing: 2px;
+    font-weight: 800;
 }
 
 .button-section {
