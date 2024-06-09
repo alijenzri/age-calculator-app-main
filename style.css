@@ -23,6 +23,7 @@ img {
     ROOT-VARIABLE DECLARATIONS
 */
 :root {
+    
     /* COLOR */
     --Purple: hsl(259, 100%, 65%);
     --Light-red: hsl(0, 100%, 67%);
@@ -31,6 +32,12 @@ img {
     --Light-grey: hsl(0, 0%, 86%);
     --Smokey-grey: hsl(0, 1%, 44%);
     --Off-black: hsl(0, 0%, 8%);
+    
+    /* | FONTS  */
+	--xs-font: 400 16px 'Poppins400';
+	--small-font: 400 16px 'Poppins400i';
+	--font-size-inputs: 700 32px 'Poppins700';
+	--font-size-outputs: 800 105px 'Poppins800i';
 }
 
 /*
@@ -43,13 +50,61 @@ body {
     align-items: center;
     justify-content: center;
     margin: 0;  
+    font-family: 'Poppins';
 }
 
 input {
     font-size: 2rem;
+    font-weight: inherit;
+    padding: 15px;
+    width: 200px;
+    border-radius: 10px;
+    border: solid 1px var(--Light-grey);
+    margin-top: 10px;
 }
 
 /* 
     MAIN CONTAINER 
 */
+.main-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 70vh;
+    background-color: var(--White);
+    padding: 20px;   
+    border-radius: 30px;
+    border-bottom-right-radius: 250px;
+}
+
+.input-section {
+    display: flex;
+    font-weight: 800;
+    color: var(--Smokey-grey);
+}
+
+.input-group {
+    margin: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.button-section {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.button-section button {
+    background-color: var(--Purple);
+    border: none;
+    border-radius: 50%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+}
+
 
