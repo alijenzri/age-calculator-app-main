@@ -1,8 +1,7 @@
 /*
-    IMPORTING FONT FROM GOOFLE-FONT
+    IMPORTING FONT FROM GOOGLE-FONT
 */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 /*
     RESET
@@ -23,7 +22,6 @@ img {
     ROOT-VARIABLE DECLARATIONS
 */
 :root {
-    
     /* COLOR */
     --Purple: hsl(259, 100%, 65%);
     --Light-red: hsl(0, 100%, 67%);
@@ -33,29 +31,28 @@ img {
     --Smokey-grey: hsl(0, 1%, 44%);
     --Off-black: hsl(0, 0%, 8%);
     
-    /* | FONTS  */
-	--xs-font: 400 16px 'Poppins400';
-	--small-font: 400 16px 'Poppins400i';
-	--font-size-inputs: 700 32px 'Poppins700';
-	--font-size-outputs: 800 105px 'Poppins800i';
+    /* FONTS */
+    --xs-font: 400 16px 'Poppins', sans-serif;
+    --small-font: 400 16px 'Poppins', sans-serif;
+    --font-size-inputs: 700 32px 'Poppins', sans-serif;
+    --font-size-outputs: 800 105px 'Poppins', sans-serif;
 }
 
 /*
-    GENRAL STYLES
+    GENERAL STYLES
 */
 body {
     background-color: var(--Light-grey);
     height: 100vh;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     margin: 0;  
-    font-family: 'Poppins';
+    font-family: 'Poppins', sans-serif;
 }
 
 input {
-    font-size: 2rem;
-    font-weight: inherit;
+    font: var(--font-size-inputs);
     padding: 15px;
     width: 200px;
     border-radius: 10px;
@@ -68,19 +65,18 @@ input {
 */
 .main-container {
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
     height: 70vh;
+    width: 900px;
     background-color: var(--White);
-    padding: 20px;   
+    padding: 30px;   
     border-radius: 30px;
     border-bottom-right-radius: 250px;
 }
 
 .input-section {
     display: flex;
-    font-weight: 800;
+    font: var(--small-font);
     color: var(--Smokey-grey);
 }
 
@@ -107,4 +103,23 @@ input {
     margin-left: auto;
 }
 
+/* 
+    RESULT SECTION 
+*/
+.result-section {
+    font: var(--font-size-outputs);
+    font-weight: 700;
+    margin-left: 30px;
+}
 
+.result-group {
+    display: flex;
+    flex-direction: row;
+    line-height: 7rem;
+}
+
+.result-age,
+.result-day,
+.result-month {
+    color: var(--Purple);
+}
