@@ -36,3 +36,17 @@ img {
 /*
     GENRAL STYLES
 */
+body {
+    background-color: var(--Light-grey);
+    height: 100vh;
+}
+
+input {
+    font-size: 2rem;
+}
+
+/* 
+    MAIN CONTAINER 
+*/
+
+
