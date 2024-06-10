@@ -14,9 +14,6 @@ function errorMessage(day, month, year) {
     const monthElement = document.querySelector('.input-error-month');
     const yearElement = document.querySelector('.input-error-year');
     const today = dayjs();
-    console.log(today.date());
-    console.log(today.month()+1);
-    console.log(today.year());
 
     dayElement.innerHTML = '';
     monthElement.innerHTML = '';
@@ -40,19 +37,17 @@ function errorMessage(day, month, year) {
         yearElement.innerHTML = 'Must be in the past';
     }
 
-    if (year > today.year()
-        || (year === today.year() && month > (today.month() + 1))
-        || (year === today.year() && month === (today.month() + 1) && day >= today.date())) {
+    const inputDate = dayjs(`${year}-${month}-${day}`);
+    if (inputDate.isAfter(today, 'day')) {
         yearElement.innerHTML = 'Must be in the past';
     }
 
     const inputGroupElements = document.querySelectorAll('.input-group');
     
-    if (dayElement.innerHTML || monthElement.innerHTML || yearElement.innerHTML) {
-        inputGroupElements.forEach((element) => {
-            element.classList.add('error');
-        });
-    }
+    inputGroupElements.forEach((element) => {
+        element.classList.add('error');
+    });
+
 }
 
 
