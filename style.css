@@ -34,7 +34,7 @@ img {
     /* FONTS */
     --xs-font: 400 16px 'Poppins', sans-serif;
     --small-font: 400 16px 'Poppins', sans-serif;
-    --font-size-inputs: 700 32px 'Poppins', sans-serif;
+    --font-size-inputs: 700 25px 'Poppins', sans-serif;
     --font-size-outputs: 800 100px 'Poppins', sans-serif;
 }
 
@@ -54,8 +54,8 @@ body {
 
 input {
     font: var(--font-size-inputs);
-    padding: 15px;
-    width: 200px;
+    padding: 12px;
+    width: 180px;
     border-radius: 10px;
     border: solid 1px var(--Light-grey);
     margin-top: 10px;
@@ -104,6 +104,12 @@ input {
     justify-content: center;
     margin-left: auto;
     cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button-section button:hover {
+    background-color: black;
+    transform: scale(1.05);
 }
 
 /* 
