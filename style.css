@@ -132,6 +132,14 @@ input {
     transform: scale(1.05);
 }
 
+.button-section .line {
+    width: 100%;
+    height: 2px;
+    background-color: var(--Light-grey);
+    margin-left: 20px;
+    align-self: center;
+}
+
 /* 
     RESULT SECTION 
 */
