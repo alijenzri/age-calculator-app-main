@@ -69,11 +69,14 @@ input {
     color: var(--Light-red);
 }
 
-.input-error {
+.input-error-year,
+.input-error-month,
+.input-error-day {
     text-transform: lowercase;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 13px;
     margin-top: 9px;
+    letter-spacing: 1px;
 }
 
 

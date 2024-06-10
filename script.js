@@ -1,3 +1,62 @@
+function removeErrorMessage() {
+    document.querySelector('.input-error-day').innerHTML = '';
+    document.querySelector('.input-error-month').innerHTML = '';
+    document.querySelector('.input-error-year').innerHTML = '';
+
+    const inputGroupElements = document.querySelectorAll('.input-group');
+    inputGroupElements.forEach((element) => {
+        element.classList.remove('error');
+    });
+}
+
+function errorMessage(day, month, year) {
+    const dayElement = document.querySelector('.input-error-day');
+    const monthElement = document.querySelector('.input-error-month');
+    const yearElement = document.querySelector('.input-error-year');
+    const today = dayjs();
+    console.log(today.date());
+    console.log(today.month()+1);
+    console.log(today.year());
+
+    dayElement.innerHTML = '';
+    monthElement.innerHTML = '';
+    yearElement.innerHTML = '';
+
+    if (day === '') {
+        dayElement.innerHTML = 'This field is required';
+    } else if (day > 31 || day < 1) {
+        dayElement.innerHTML = 'Must be a valid day';
+    }
+
+    if (month === '') {
+        monthElement.innerHTML = 'This field is required';
+    } else if (month > 12 || month < 1) {
+        monthElement.innerHTML = 'Must be a valid month';
+    }
+
+    if (year === '') {
+        yearElement.innerHTML = 'This field is required';
+    } else if (year > today.year()) {
+        yearElement.innerHTML = 'Must be in the past';
+    }
+
+    if (year > today.year()
+        || (year === today.year() && month > (today.month() + 1))
+        || (year === today.year() && month === (today.month() + 1) && day >= today.date())) {
+        yearElement.innerHTML = 'Must be in the past';
+    }
+
+    const inputGroupElements = document.querySelectorAll('.input-group');
+    
+    if (dayElement.innerHTML || monthElement.innerHTML || yearElement.innerHTML) {
+        inputGroupElements.forEach((element) => {
+            element.classList.add('error');
+        });
+    }
+}
+
+
+
 function valideDate(day, month, year) {
     const today = dayjs();
 
@@ -10,7 +69,7 @@ function valideDate(day, month, year) {
     year = parseInt(year);
     if (year > today.year()
         || (year === today.year() && month > today.month() + 1)
-        || (year === today.year() && month === today.month() + 1 && day > today.date())) {
+        || (year === today.year() && month === today.month() + 1 && day >= today.date())) {
         return false;
     }
 
@@ -48,6 +107,9 @@ document.querySelector('.js-button').addEventListener('click', () => {
     console.log(`today date : ${dayjs().day()}/${dayjs().month() + 1}/${dayjs().year()}`)
     if (!valideDate(dayElement, monthElement, yearElement)) {
         console.log('date invalide !');
+        errorMessage(dayElement, monthElement, yearElement);
         return;
+    } else {
+        removeErrorMessage();
     }
 });
