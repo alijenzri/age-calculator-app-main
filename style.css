@@ -61,6 +61,23 @@ input {
     margin-top: 10px;
 }
 
+.error input {
+    border: solid 1px var(--Light-red);
+}
+
+.error {
+    color: var(--Light-red);
+}
+
+.input-error {
+    text-transform: lowercase;
+    font-weight: 400;
+    font-size: 12px;
+    margin-top: 9px;
+}
+
+
+
 /* 
     MAIN CONTAINER 
 */
