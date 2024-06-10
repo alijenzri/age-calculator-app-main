@@ -1,3 +1,24 @@
+function calculateAge(day, month, year) {
+    const today = dayjs();
+    const birthDate = dayjs(`${year}-${month}-${day}`);
+
+    let ageYears = today.year() - birthDate.year();
+    let ageMonths = today.month() - birthDate.month();
+    let ageDays = today.date() - birthDate.date();
+
+    if (ageDays < 0) {
+        ageMonths -= 1;
+        ageDays += dayjs(birthDate).add(ageMonths, 'month').daysInMonth();
+    }
+
+    if (ageMonths < 0) {
+        ageYears -= 1;
+        ageMonths += 12;
+    }
+
+    return { years: ageYears, months: ageMonths, days: ageDays };
+}
+
 function removeErrorMessage() {
     document.querySelector('.input-error-day').innerHTML = '';
     document.querySelector('.input-error-month').innerHTML = '';
@@ -98,13 +119,17 @@ document.querySelector('.js-button').addEventListener('click', () => {
     const dayElement = document.getElementById('day').value;
     const monthElement = document.getElementById('month').value;
     const yearElement = document.getElementById('year').value;
-    console.log(`input date : ${dayElement}/${monthElement}/${yearElement}`)
-    console.log(`today date : ${dayjs().day()}/${dayjs().month() + 1}/${dayjs().year()}`)
     if (!valideDate(dayElement, monthElement, yearElement)) {
-        console.log('date invalide !');
         errorMessage(dayElement, monthElement, yearElement);
+        document.querySelector('.js-result-age').innerText = '--';
+        document.querySelector('.js-result-month').innerText = '--';
+        document.querySelector('.js-result-day').innerText = '--';
         return;
     } else {
         removeErrorMessage();
+        const age = calculateAge(dayElement, monthElement, yearElement);
+        document.querySelector('.js-result-age').innerText = age.years;
+        document.querySelector('.js-result-month').innerText = age.months;
+        document.querySelector('.js-result-day').innerText = age.days;
     }
 });
